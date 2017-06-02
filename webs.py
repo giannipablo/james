@@ -8,7 +8,7 @@ import webbrowser
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-o" , "--open", dest = "alias"    , default = "",type = str, help="It opens my web pages")
-parser.add_argument("-a" , "--add" , dest = "new_alias", default = "",type = str, help="It adds an alias and url. Pass it in the form  'alias:url'")
+parser.add_argument("-a" , "--add" , dest = "new_alias", default = "",type = str, help="It adds an alias and url. Pass it in the form  'alias|url'")
 parser.add_argument("-l" , "--list", dest = "list"     , action  = "store_true" , help="It list the table alias vs. urls")
 
 args = parser.parse_args()
@@ -50,7 +50,7 @@ def main():
 		webs.list_urls()
 
 	if args.new_alias!='':
-		tmp = args.new_alias.split(':')
+		tmp = args.new_alias.split('|')
 		webs.add_url(alias=tmp[0], url=tmp[1])
 
 
