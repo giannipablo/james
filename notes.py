@@ -22,9 +22,9 @@ class Notes():
 		self.__target_path = target_path
 		self.__case_path   = ''
 
-		npath = '/home/'+os.getlogin()+'/james/notes_templates/note_template.txt'
+		npath = os.environ['JAMES_PATH']+'/notes_templates/note_template.txt'
 		if stile.lower()=='meeting':
-			npath = '/home/'+os.getlogin()+'/james/notes_templates/meeting_template.txt'
+			npath = os.environ['JAMES_PATH'] + '/notes_templates/meeting_template.txt'
 
 		with open(npath,'r') as f:
 			self.__template = f.read()
